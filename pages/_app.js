@@ -1,6 +1,7 @@
 import Head from "next/head";
 import "../public/global.css";
 
+let theme = "../public/light-theme.css";
 export default function App({ Component, pageProps }) {
   return (
     <div>
