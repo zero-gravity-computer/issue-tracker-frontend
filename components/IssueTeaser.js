@@ -1,10 +1,23 @@
 // author, title, status, createdAt, id, severity
 import moment from "moment";
-import { Pane, Checkbox, Card, Heading, Text } from "evergreen-ui";
+import {
+  Pane,
+  Checkbox,
+  Card,
+  Heading,
+  Text,
+  Badge,
+  PropertiesIcon,
+} from "evergreen-ui";
 import React, { useState } from "react";
 
-export function IssueTeaser({ id, author, title, createdAt }) {
+export function IssueTeaser({ id, author, title, createdAt, severity }) {
   const [isSelected, setIsSelected] = useState(true);
+  const severityColors = {
+    low: "green",
+    medium: "yellow",
+    high: "red",
+  };
   return (
     <Pane
       padding={10}
@@ -31,6 +44,9 @@ export function IssueTeaser({ id, author, title, createdAt }) {
           <span>created by {author} &nbsp;</span>
           <span>{moment(createdAt).fromNow()}</span>
         </Text>
+        <Badge color={severityColors[severity]} marginLeft="10px">
+          {severity}
+        </Badge>
       </Pane>
     </Pane>
   );
