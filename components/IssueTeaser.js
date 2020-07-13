@@ -1,13 +1,15 @@
 // author, title, status, createdAt, id, severity
 import moment from "moment";
 
-export function IssueTeaser(props) {
-  function FormatInfo() {
-    let formattedDate = moment(props.createdAt).fromNow();
+export function IssueTeaser({ id, author, title, createdAt }) {
+  function Info() {
+    let formattedDate = moment(createdAt).fromNow();
     return (
       <div>
-        <span style={{ ...styles.info }}>{props.id}</span>
-        <span style={{ ...styles.info }}>created by {props.author}</span>
+        <span style={{ ...styles.info }}>{id}</span>
+        <span style={{ ...styles.info, ...styles.author }}>
+          created by {author}
+        </span>
         <span style={{ ...styles.info, ...styles.dateMakeUp }}>
           {formattedDate}
         </span>
@@ -16,9 +18,9 @@ export function IssueTeaser(props) {
   }
   return (
     <div style={styles.container}>
-      <h3 style={styles.title}>{props.title}</h3>
+      <h3 style={styles.title}>{title}</h3>
 
-      <FormatInfo />
+      <Info />
     </div>
   );
 }
@@ -26,6 +28,7 @@ let styles = {
   title: {
     color: "crimson",
     margin: "0px",
+    fontSize: "1.5em",
   },
 
   container: {
@@ -34,11 +37,15 @@ let styles = {
   },
 
   dateMakeUp: {
-    color: "#bbb",
+    color: "#999",
     fontSize: ".8em",
   },
 
   info: {
     padding: "0 10px 0 0",
+  },
+
+  author: {
+    fontSize: ".9em",
   },
 };
