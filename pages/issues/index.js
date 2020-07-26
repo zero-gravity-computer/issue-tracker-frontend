@@ -1,12 +1,67 @@
-import IssueTeaser from "../../components/IssueTeaser";
+import { IssueTeaser } from "../../components/IssueTeaser";
+import { IssueBox } from "../../components/IssueBox";
 
 export default function IssuesPage() {
   return (
-    <IssueTeaser
-      title="Allow for nested folders (of images) in ios 13 safari latest"
-      id={1424}
-      createdAt="2020-06-14T21:30:27.397Z"
-      isOpen={true}
-    />
+    <div>
+      <IssueBox>
+        <IssueTeaser
+          title="Broken UI thing"
+          id={1}
+          author="JamesJamesJamesJamesJames"
+          createdAt="2020-07-13T02:01:11.765Z"
+          severity="low"
+        />
+        <IssueTeaser
+          title="Broken UI thing"
+          id={1}
+          author="JamesJamesJamesJamesJames"
+          createdAt="2020-07-13T02:01:11.765Z"
+          severity="medium"
+        />
+        <IssueTeaser
+          title="Broken UI thing"
+          id={1}
+          author="JamesJamesJamesJamesJames"
+          createdAt="2020-07-13T02:01:11.765Z"
+          severity="low"
+        />
+        <IssueTeaser
+          title="Broken UI thing"
+          id={1}
+          author="JamesJamesJamesJamesJames"
+          createdAt="2020-07-13T02:01:11.765Z"
+          severity="high"
+        />
+      </IssueBox>
+      <IssueTeaser
+        title="Broken UI thing"
+        id={1}
+        author="JamesJamesJamesJamesJames"
+        createdAt="2020-07-13T02:01:11.765Z"
+        severity="low"
+      />
+      <IssueTeaser
+        title="Broken UI thing"
+        id={1}
+        author="JamesJamesJamesJamesJames"
+        createdAt="2020-07-13T02:01:11.765Z"
+        severity="medium"
+      />
+      <IssueTeaser
+        title="Broken UI thing"
+        id={1}
+        author="JamesJamesJamesJamesJames"
+        createdAt="2020-07-13T02:01:11.765Z"
+        severity="low"
+      />
+      <IssueTeaser
+        title="Broken UI thing"
+        id={1}
+        author="JamesJamesJamesJamesJames"
+        createdAt="2020-07-13T02:01:11.765Z"
+        severity="high"
+      />
+    </div>
   );
 }
