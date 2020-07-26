@@ -1,67 +1,31 @@
 import { IssueTeaser } from "../../components/IssueTeaser";
 import { IssueBox } from "../../components/IssueBox";
+import * as backend from "../../data/backend";
 
-export default function IssuesPage() {
+export default function IssuesPage(props) {
+  console.log(props.issues);
   return (
     <div>
-      <IssueBox>
-        <IssueTeaser
-          title="Broken UI thing"
-          id={1}
-          author="JamesJamesJamesJamesJames"
-          createdAt="2020-07-13T02:01:11.765Z"
-          severity="low"
-        />
-        <IssueTeaser
-          title="Broken UI thing"
-          id={1}
-          author="JamesJamesJamesJamesJames"
-          createdAt="2020-07-13T02:01:11.765Z"
-          severity="medium"
-        />
-        <IssueTeaser
-          title="Broken UI thing"
-          id={1}
-          author="JamesJamesJamesJamesJames"
-          createdAt="2020-07-13T02:01:11.765Z"
-          severity="low"
-        />
-        <IssueTeaser
-          title="Broken UI thing"
-          id={1}
-          author="JamesJamesJamesJamesJames"
-          createdAt="2020-07-13T02:01:11.765Z"
-          severity="high"
-        />
-      </IssueBox>
-      <IssueTeaser
-        title="Broken UI thing"
-        id={1}
-        author="JamesJamesJamesJamesJames"
-        createdAt="2020-07-13T02:01:11.765Z"
-        severity="low"
-      />
-      <IssueTeaser
-        title="Broken UI thing"
-        id={1}
-        author="JamesJamesJamesJamesJames"
-        createdAt="2020-07-13T02:01:11.765Z"
-        severity="medium"
-      />
-      <IssueTeaser
-        title="Broken UI thing"
-        id={1}
-        author="JamesJamesJamesJamesJames"
-        createdAt="2020-07-13T02:01:11.765Z"
-        severity="low"
-      />
-      <IssueTeaser
-        title="Broken UI thing"
-        id={1}
-        author="JamesJamesJamesJamesJames"
-        createdAt="2020-07-13T02:01:11.765Z"
-        severity="high"
-      />
+      <IssueBox> </IssueBox>
+      {props.issues.map(function (issue) {
+        return (
+          <IssueTeaser
+            key={issue.id}
+            title={issue.title}
+            id={issue.id}
+            author={issue.author}
+            createdAt={issue.created_at}
+            severity={issue.severity}
+          />
+        );
+      })}
     </div>
   );
+}
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      issues: await backend.issues(),
+    }, // will be passed to the page component as props
+  };
 }
